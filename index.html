@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Failure Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            padding: 30px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Heart Failure Prediction Form</h2>
+
+    <form action="/predict" method="POST">
+        <label>Age:</label>
+        <input type="number" name="age" step="0.1" required>
+
+        <label>Anaemia (1 = Yes, 0 = No):</label>
+        <input type="number" name="anaemia" required>
+
+        <label>Creatinine Phosphokinase:</label>
+        <input type="number" name="creatinine_phosphokinase" step="0.1" required>
+
+        <label>Diabetes (1 = Yes, 0 = No):</label>
+        <input type="number" name="diabetes" required>
+
+        <label>Ejection Fraction:</label>
+        <input type="number" name="ejection_fraction" step="0.1" required>
+
+        <label>High Blood Pressure (1 = Yes, 0 = No):</label>
+        <input type="number" name="high_blood_pressure" required>
+
+        <label>Platelets:</label>
+        <input type="number" name="platelets" step="0.1" required>
+
+        <label>Serum Creatinine:</label>
+        <input type="number" name="serum_creatinine" step="0.1" required>
+
+        <label>Serum Sodium:</label>
+        <input type="number" name="serum_sodium" required>
+
+        <label>Sex (1 = Male, 0 = Female):</label>
+        <input type="number" name="sex" required>
+
+        <label>Smoking (1 = Yes, 0 = No):</label>
+        <input type="number" name="smoking" required>
+
+        <label>Follow-up Time (in days):</label>
+        <input type="number" name="time" required>
+
+        <button type="submit">Predict</button>
+
+        {% if result %}
+            <div class="result">{{ result }}</div>
+        {% endif %}
+    </form>
+
+</body>
+</html>
